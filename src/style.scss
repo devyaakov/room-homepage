@@ -306,6 +306,8 @@ main {
         height: auto;
 
         .slides {
+            display: -webkit-inline-box;
+            flex-flow: initial;
 
             .slide{
                 display: block;
