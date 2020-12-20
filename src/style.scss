@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: 'Spartan', sans-serif;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    
+    .menu {
+        position: relative;
+        margin: 50px;
+    }
+    .menu .menu-img{
+        position: relative;
+        width: 62px;
+        height: 14px;
+        background-image: url('./images/logo.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .menu ul {
+        position: absolute;
+        top: 0;
+        left: 103px;
+        margin: 0;
+        padding: 0;
+        color: $white;
+    }
+
+    .menu ul li{        
+        display: inline;
+        margin-right: 30px;
+        padding-bottom: 5px;
+    }
+
+    .menu ul li:hover{
+        border-bottom: 2px solid $white;
+    }
+
+    .menu ul li a{
+        text-decoration: none;
+        color: $white;
+    }
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+
+    .slides {
+        position: relative;
+        overflow: hidden;
+        height: 69%;
+        display: flex;
+        flex-flow: column wrap;
+
+        .slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+        }
+    
+        .slide .slide-img{
+            width: 67%;
+        }
+    
+        .slide .slide-body{
+            width: 33%;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .slide .slide-body h2{
+            font-size: 3rem;
+        }
+
+        .slide .slide-body span {
+            position: relative;
+            font-size: 1.2rem;
+            letter-spacing: 1rem;
+            text-transform: uppercase;
+        }
+
+        .slide .slide-body span::after{
+            content: "";
+            position: absolute;
+            margin-left: 30px;
+            width: 40px;
+            height: 12px;
+            background: url('./images/icon-arrow.svg') no-repeat center;
+        }
+
+        .slide .slide-body span:hover::after{
+            background: url('./images/icon-arrow-grey.svg') no-repeat center;
+        }
+
+        .slide .slide-body span:hover{
+            color: $dark-gray;
+            cursor: pointer;
+        }
+
+        .slide .slide-body > div {
+            width: 80%;
+        }
+
+        .slide .slide-body p{
+            color: $dark-gray;
+            margin-bottom: 3rem;
+        }
+    
+        .slide .slide-footer{
+            position: absolute;
+            bottom: 0;
+            left: 67%;
+            display: flex;
+            color: $white;
+        }
+    
+        .slide .slide-footer div {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            background-color: $black;
+            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .slide .slide-footer div:hover{
+            background-color: $very-dark-gray;
+        }
+
+        .slide .slide-footer .slide-preview{
+            background-image: url('./images/icon-angle-left.svg');
+        }
+
+        .slide .slide-footer .slide-next{
+            background-image: url('./images/icon-angle-right.svg');
+        }
+    }
+
+    .info{
+        position: relative;
+        width: 100%;
+        height: 31%;
+        display: flex;
+        justify-content: flex-start;
+
+        .img-left{
+            position: relative;
+            width: 29%;
+            background-image: url('./images/image-about-dark.jpg');
+            background-repeat: no-repeat;;
+            background-size: cover;
+            background-position: center;
+        }
+        .img-right{
+            position: relative;
+            width: 29%;
+            background-image: url('./images/image-about-light.jpg');
+            background-repeat: no-repeat;;
+            background-size: cover;
+        }
+
+        .text {
+            position: relative;
+            width: 42%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .text > div {
+            position: relative;
+            width: 80%;
+        }
+
+        .text > div p:first-child{
+            text-transform: uppercase;
+            letter-spacing: 0.6rem;
+            font-weight: bold;
+        }
+
+        .text > div p:last-child{
+            color: $dark-gray;
+        }
+    }
+}
+
+.anima-left{
+    animation: left 2s linear 1;
+}
+
+.anima-right{
+    animation: right 2s linear 1;
+}
+
+@keyframes left{
+    to {
+        left: -100%;
+    }
+    from{
+        left: 0px;
+    }
+}
+
+@keyframes right{
+    to {
+        left: 0px;
+    }
+    from{
+        left: -100%
+    }
+}
+
+@media(max-width: 576px){
+    .background-black{
+        position: absolute;
+        display: none;
+        width: 100%;
+        height: 100vh;;
+        background-color: black;
+        opacity: 0.5;
+        z-index: 10;
+
+    }
+    .show-options{
+        display: block !important;
+    }
+    header{
+
+        .menu.show-menu-option {
+            .menu-option{
+                position: absolute;
+                top: -25px;
+                left: -25px;
+                width: 120%;
+                height: 50px;
+                background-color: $white;
+                display: flex;
+                align-items: center;
+            }
+            .menu-option ul{
+                top: auto;
+                left: 60px;
+            }
+            .menu-option .menu-option-icon{
+                position: relative;
+                left: 20px;
+                width: 16px;
+                height: 16px;
+                background: url('./images/icon-close.svg') no-repeat center;
+                background-size: cover;
+                cursor: pointer;
+            }
+            .menu-option ul a{
+                color: $black;
+                font-weight: bold;
+            }
+        }
+        .menu {
+            margin: 25px;
+
+            .menu-icon{
+                position: absolute;
+                width: 20px;
+                height: 14px;
+                background: url('./images/icon-hamburger.svg') no-repeat center;
+                background-size: cover;
+            }
+            .menu-img{
+                margin: auto;
+            }
+
+            .menu-option{
+                display: none;
+            }
+
+            
+        }
+    }
+    main {
+        position: relative;
+        height: auto;
+
+        .slides {
+
+            .slide{
+                display: block;
+            }
+
+            .slide .slide-img{
+                width: 100%;
+                height: 280px;
+            }
+            
+            .slide .slide-body{
+                width: 100%;    
+            }
+
+            .slide .slide-body h2{
+                font-size: 1.5rem;
+            }
+
+            .slide .slide-footer{
+                top: 240px;
+                // top: 15.7rem;
+                left: calc( 100% - 80px);
+            }
+
+            .slide .slide-footer div {
+                width: 40px;
+                height: 40px;
+            }
+        } 
+
+        .info{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-flow: column wrap;
+
+            .img-left{
+                position: relative;
+                width: 100%;
+                height: 200px;
+            }
+
+            .img-right{
+                position: relative;
+                width: 100%;
+                height: 200px;
+            }
+
+            .text {
+                position: relative;
+                width: 100%;
+            }
+
+            .text > div p:first-child{
+                letter-spacing: 0.5rem;
+            }
+        }
+    }
+}
